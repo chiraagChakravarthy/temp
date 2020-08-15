@@ -10,7 +10,7 @@ app.use(express.urlencoded({extended: false}))
 
 app.post('/register', (req, res) => {
     var body = req.body;
-    var salt = now();//nanotime
+    //var salt = now();//nanotime
     var account = {
         "linkedin": body.linkedin,
         "birthday": body.birthday,
@@ -20,7 +20,10 @@ app.post('/register', (req, res) => {
             "hash": sha256(body.password + salt)
         }
     }
-    var users = JSON.parse(readUsers());
+    var usersString = readUsers()
+    console.log(usersString)
+
+    var users = JSON.parse(usersString);
     users[body.name] = account;
     //writeUsers(JSON.stringify(users))
     res.send('Ok');
@@ -40,6 +43,5 @@ function readUsers(){
 }
 
 function writeUsers(users){
-    console.log(users)
     fs.writeFileSync('users.json', users)
 }
