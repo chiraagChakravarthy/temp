@@ -10,7 +10,7 @@ app.use(express.urlencoded({extended: false}))
 
 app.post('/register', (req, res) => {
     var body = req.body;
-    //var salt = now();//nanotime
+    var salt = now();//nanotime
     var account = {
         "linkedin": body.linkedin,
         "birthday": body.birthday,
