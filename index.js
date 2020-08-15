@@ -20,10 +20,9 @@ app.post('/register', (req, res) => {
             "hash": sha256(body.password + salt)
         }
     }
-    console.log(JSON.stringify(account))
     var users = JSON.parse(readUsers());
     users[body.name] = account;
-    writeUsers(JSON.stringify(users))
+    //writeUsers(JSON.stringify(users))
     res.send('Ok');
 })
 
@@ -41,5 +40,6 @@ function readUsers(){
 }
 
 function writeUsers(users){
+    console.log(users)
     fs.writeFileSync('users.json', users)
 }
