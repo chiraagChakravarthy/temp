@@ -26,11 +26,18 @@ app.post('/register', (req, res) => {
     console.log(users)
     console.log(account)
     users[body.name] = account;
-    //writeUsers(JSON.stringify(users))
+    writeUsers(JSON.stringify(users))
     res.send('Ok');
 })
 
+app.get('/users', (req, res) => {
+    console.log('got')
+    res.write(fs.readFileSync('users.json'))
+    res.end();
+})
+
 app.post('/register1', (req, res)=>{
+
 })
 
 const PORT = process.env.PORT || 8080;
