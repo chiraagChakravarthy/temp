@@ -20,6 +20,7 @@ app.post('/register', (req, res) => {
             "hash": sha256(body.password + salt)
         }
     }
+    console.log(JSON.stringify(account))
     var users = JSON.parse(readUsers());
     users[body.name] = account;
     writeUsers(JSON.stringify(users))
@@ -27,7 +28,6 @@ app.post('/register', (req, res) => {
 })
 
 app.post('/register1', (req, res)=>{
-    fs.writeFileSync('test.txt')
 })
 
 const PORT = process.env.PORT || 8080;
