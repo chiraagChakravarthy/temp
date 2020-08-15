@@ -21,9 +21,10 @@ app.post('/register', (req, res) => {
         }
     }
     var usersString = readUsers()
-    console.log(usersString)
 
     var users = JSON.parse(usersString);
+    console.log(users)
+    console.log(account)
     users[body.name] = account;
     //writeUsers(JSON.stringify(users))
     res.send('Ok');
