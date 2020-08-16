@@ -14,7 +14,7 @@ app.post('/register', (req, res) => {
     var account = {
         "linkedin": body.linkedin,
         "birthday": body.birthday,
-        "speciality": body.speciality,
+        "special": body.specialty,
         "password": {
             "salt": salt,
             "hash": sha256(body.password + salt)
