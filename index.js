@@ -68,7 +68,7 @@ app.get('/user', (req, res) => {
     if(users.hasOwnProperty(query.name)){
         var user = users[query.name]
         res.write(JSON.stringify({
-            'name': user.name,
+            'name': query.name,
             'birthday': user.birthday,
             'specialty': user.specialty,
             'linkedin': user.linkedin
