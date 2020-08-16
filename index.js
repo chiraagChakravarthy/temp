@@ -73,7 +73,7 @@ app.get('/user', (req, res) => {
             'linkedin': user.linkedin
         }))
     } else {
-        res.write(1)
+        res.write("1")
     }
     res.end()
 })
