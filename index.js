@@ -14,7 +14,7 @@ app.post('/register', (req, res) => {
     var account = {
         "linkedin": body.linkedin,
         "birthday": body.birthday,
-        "special": body.specialty,
+        "specialty": body.specialty,
         "password": {
             "salt": salt,
             "hash": sha256(body.password + salt)
@@ -69,7 +69,7 @@ app.get('/user', (req, res) => {
         res.write(JSON.stringify({
             'name': user.name,
             'birthday': user.birthday,
-            'speciality': user.speciality,
+            'specialty': user.specialty,
             'linkedin': user.linkedin
         }))
     } else {
