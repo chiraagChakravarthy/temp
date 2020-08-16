@@ -62,10 +62,10 @@ const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => console.log('listening on port ' + PORT));
 
 app.get('/user', (req, res) => {
-    var body = req.body;
+    var query = req.query;
     var users = JSON.parse(readUsers())
-    if(users.hasOwnProperty(body.name)){
-        var user = user[body.name]
+    if(users.hasOwnProperty(query.name)){
+        var user = user[query.name]
         res.write(JSON.stringify({
             'name': user.name,
             'birthday': user.birthday,
